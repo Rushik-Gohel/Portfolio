@@ -2,48 +2,33 @@ import { motion, useScroll, useSpring } from 'motion/react';
 import { ExternalLink, Github, MonitorPlay, Ruler, ChevronRight } from 'lucide-react';
 import { useRef } from 'react';
 
-const projects = [
+interface Project {
+  title: string;
+  subtitle: string;
+  description: string;
+  tags: string[];
+  id: string;
+  github?: string;
+  visit?: string;
+}
+
+const projects: Project[] = [
   {
-    title: "Flow Assist",
-    subtitle: "AI_CHAT_INTEGRATION",
-    description: "Built a context-aware, LLM-powered chatbot integrated into App Connect Designer, enabling users to create and modify integration flows via natural language.",
-    tags: ["LLM", "RAG", "Milvus", "Knowledge_Graphs"],
-    id: "SPEC_01"
-  },
-  {
-    title: "Template Gen",
-    subtitle: "AUTO_GENERATIVE_MODULE",
-    description: "Backend tool analyzing existing integration templates to auto-generate reusable alternatives using advanced Granite LLMs.",
-    tags: ["Granite_LLM", "Python", "Automation"],
-    id: "SPEC_02"
+    title: "Safe Growth Researcher",
+    subtitle: "LEAD_RESEARCH_MODULE",
+    description: "Advanced AI-driven research platform focused on strategic growth analysis and safety-aligned technology forecasting.",
+    tags: ["AI_Research", "Safety_Alignment", "Forecasting"],
+    id: "SPEC_01",
+    github: "https://github.com/Rushik-Gohel/Safe-Growth-Lead-Researcher/tree/main",
+    visit: "https://rushiks-safe-growth-lead-researcher.onrender.com/"
   },
   {
     title: "API Agent",
     subtitle: "LIFECYCLE_AUTOMATION",
     description: "AI assistant built on an agentic framework automating API spec generation, validation, and governance enforcement.",
     tags: ["Agentic", "OpenAPI", "Governance"],
-    id: "SPEC_03"
-  },
-  {
-    title: "Neural Bridge",
-    subtitle: "CROSS_MODAL_SYNC",
-    description: "Experimental framework for synchronizing multi-modal LLM outputs with legacy ERP systems using real-time vector patching.",
-    tags: ["Multi-Modal", "ERP", "Vector_DB"],
-    id: "SPEC_04"
-  },
-  {
-    title: "Granite Lab",
-    subtitle: "REASONING_OPTIMIZER",
-    description: "Internal research tool for fine-tuning Granite models on domain-specific technical documentation with synthetic data generation.",
-    tags: ["Fine-Tuning", "Synthetic_Data", "PyTorch"],
-    id: "SPEC_05"
-  },
-  {
-    title: "Eco Sync",
-    subtitle: "SUPPLY_CHAIN_AI",
-    description: "Predictive analytics platform for carbon footprint tracking in global supply chains using Environmental Intelligence platforms.",
-    tags: ["Sustainability", "Analytics", "ESG"],
-    id: "SPEC_06"
+    id: "SPEC_03",
+    visit: "https://www.ibm.com/products/api-connect/api-agent"
   }
 ];
 
@@ -62,12 +47,13 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-32 bg-[var(--color-secondary)] overflow-hidden">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 max-w-5xl">
         <div className="mb-20 flex flex-col md:flex-row justify-between items-end gap-8">
-          <div className="max-w-2xl">
-            <h2 className="text-5xl font-bold tracking-tighter uppercase">
-              SELECTED <br />
-              PROJECTS
+          <div className="flex items-center gap-4">
+            <MonitorPlay className="w-8 h-8" />
+            <h2 className="text-5xl font-bold tracking-tighter uppercase italic">
+              Selected <br />
+              Projects
             </h2>
           </div>
           <div className="flex flex-col items-end gap-4 min-w-[200px]">
@@ -122,14 +108,28 @@ export default function Projects() {
                 </div>
 
                 <div className="flex gap-6 pt-10 mt-10 border-t border-[var(--color-border)]">
-                  <a href="#" className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest hover:text-[var(--color-muted)] transition-colors">
-                    <Github className="w-3.5 h-3.5" />
-                    Source
-                  </a>
-                  <a href="#" className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest hover:text-[var(--color-muted)] transition-colors">
-                    <ExternalLink className="w-3.5 h-3.5" />
-                    Visit
-                  </a>
+                  {project.github && (
+                    <a 
+                      href={project.github} 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest hover:text-[var(--color-muted)] transition-colors"
+                    >
+                      <Github className="w-3.5 h-3.5" />
+                      Source
+                    </a>
+                  )}
+                  {project.visit && (
+                    <a 
+                      href={project.visit}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest hover:text-[var(--color-muted)] transition-colors"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      Visit
+                    </a>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -137,5 +137,6 @@ export default function Projects() {
         </div>
       </div>
     </section>
+
   );
 }

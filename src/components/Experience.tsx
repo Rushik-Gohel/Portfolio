@@ -5,7 +5,7 @@ const experiences = [
   {
     role: "AI Engineer",
     company: "IBM Labs",
-    period: "Jan 2024 – Present",
+    period: "Jan 2022 – Present",
     description:
       "Contributing to the development of generative AI-powered tools that streamline backend processes and enhance user experience across integration and API lifecycle platforms.",
 

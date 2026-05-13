@@ -32,8 +32,8 @@ export default function Footer() {
               </span>
               <div className="flex flex-col md:items-end gap-4">
                 {[
-                  { icon: Linkedin, label: 'LINKEDIN', href: 'https://linkedin.com' },
-                  { icon: Github, label: 'GITHUB', href: 'https://github.com' },
+                  { icon: Linkedin, label: 'LINKEDIN', href: 'https://in.linkedin.com/in/rushik-gohel-729133168' },
+                  { icon: Github, label: 'GITHUB', href: 'https://github.com/Rushik-Gohel' },
                   { icon: Mail, label: 'EMAIL', href: 'mailto:rushikgohel@gmail.com' }
                 ].map((social) => (
                   <a 

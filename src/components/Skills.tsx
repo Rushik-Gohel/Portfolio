@@ -5,22 +5,22 @@ const skillCategories = [
   {
     title: "AI & LLM",
     icon: Cpu,
-    skills: ["Large Language Models (IBM Granite)", "RAG Architecture", "Prompt Engineering", "Agentic Frameworks", "Knowledge Graphs"]
+    skills: ["Large Language Models (LLM)", "RAG Architecture", "Prompt Engineering", "Agentic Frameworks", "Knowledge Graphs", "MCP", "MLOps"]
   },
   {
     title: "Backend & Systems",
     icon: Code2,
-    skills: ["Python", "Docker", "REST APIs", "Backend Optimization", "Unit Testing"]
+    skills: ["Python", "Java", "Go", "Docker", "REST APIs", "Microservices", "System Desgin"]
   },
   {
     title: "Data & Scaling",
     icon: Database,
-    skills: ["Milvus Vector DB", "Elasticsearch", "PostgreSQL", "Data Integration", "Retrieval Optimization"]
+    skills: ["Vector DB", "Distributed Systems", "PostgreSQL", "Data Integration", "Retrieval Optimization"]
   },
   {
     title: "Tools & Workflow",
     icon: Zap,
-    skills: ["IBM GenAI SDK", "App Connect", "API Connect", "Git", "CI/CD Platforms"]
+    skills: ["CrewAI", "LangGraph", "LangChain", "Git", "CI/CD Platforms"]
   }
 ];
 
@@ -28,9 +28,13 @@ export default function Skills() {
   return (
     <section id="skills" className="py-32 bg-[var(--color-secondary)]">
       <div className="container mx-auto px-6 max-w-5xl">
-        <h2 className="text-5xl font-bold tracking-tighter uppercase mb-20 italic">
-          TECHNICAL STACK
-        </h2>
+        {/* Section Heading */}
+        <div className="flex items-center gap-4 mb-20">
+          <Cpu className="w-8 h-8" />
+          <h2 className="text-5xl font-bold tracking-tighter uppercase italic">
+            Technical Stack
+          </h2>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {skillCategories.map((category, idx) => (
